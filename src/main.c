@@ -14,12 +14,16 @@ int main(void) {
 		printf("Please enter 0 for coordinates or 1 for function: ");
 		get_int(&gm);
 	}
-	printf("Amount of coordinates to be graphed: ");
-	get_int(&amnt);
+	switch (gm) {
+		case 0: printf("Amount of coordinates to be graphed: ");
+		        get_int(&amnt);
+		        break;
+		case 1: amnt = xsize - 1;
+	}
 	int point[amnt][DIM];
 	switch (gm) {
 		case 0: get_coord(amnt, point);
-		        break;
+			break;
 		case 1: function(amnt, point);
 	}
 	grid(amnt, point, xsize, ysize);

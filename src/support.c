@@ -39,7 +39,7 @@ void function(int a, int point[a][DIM]) {
 
 	for (i = 0; i < a; i++) {
 		x = i;
-		y = 22 * sin(.4 * x) + 0.3 * x + 20;			// function
+		y = 22 * sin(.4 * x) + (-.007 * x * x) + 30;		// function
 //		y = log(x * x) * 5;
 		point[i][0] = x;					// horizontal axis;
 		point[i][1] = floor(y);					// vertical axis
@@ -105,25 +105,28 @@ void pcoord(int a,  int point[a][DIM]) {
 	int i, j;
 	char yn;
 
-//	printf("Show coordinates? [y/n]: ");
-//	yn = getchar();
-//	if (yn == 'y') {
+	printf("Show coordinates? [y/n]: ");
+	get_yn(&yn);
+	if (yn == 'y') {
 		for (i = 0; i < a; i++) {
 			printf(" %d: (", i);
 			for (j = 0; j < DIM; j++)
 				printf("%d, ", point[i][j]);
 			printf("\b\b)\n");
 		}
-//	}
+	}
+
 
 	return;
 }
 
 void get_yn(char * ans) {
-	*ans = getchar();
-	while (*ans != 'y' || *ans != 'n')
+
+	while ((*ans = getchar())  != 'y' && *ans != 'n') {
+		while (*ans != '\n')
+			;
 		printf("Please enter either a 'y' for yes, or an 'n' for no: ");
-	
+	}
 
 	return;
 }
