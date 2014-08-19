@@ -21,7 +21,7 @@ void grid(int a, int point[a][DIM], int x, int y) {
 			}
 			putchar('\n');
 		}		
-		sleepms(100);
+		sleepms(5000 / x);
 		if (d < a) {
 			for (z = 0; z < y - 1; z++)
 				putchar('\n');
