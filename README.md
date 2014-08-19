@@ -1,5 +1,4 @@
 grapher
-*======*
 
 Just some simple practice with C.
 This program graphs coordinates or functions;
